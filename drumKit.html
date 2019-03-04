@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="drumKit.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">thud</span>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">creepy atmosphere</span>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">yell</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">muddy footsteps</span>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">Fair Ground</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">A DELIGHT!!!</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+    </div>
+
+<div>
+    <img id="switch" scr="https://i.ytimg.com/vi/xucbaiksxGM/hqdefault.jpg"></img>
+</div>
+
+    <audio
+      data-key="65"
+      src="https://raw.githubusercontent.com/OliviaWinteringham/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/boom.wav"
+    ></audio>
+
+
+    <audio
+      data-key="83"
+      src="http://freesound.org/data/previews/74/74798_215874-lq.mp3"
+    ></audio>
+    <audio
+      data-key="68"
+      src="http://freesound.org/data/previews/343/343490_1196472-lq.mp3"
+    ></audio>
+
+    <audio
+      data-key="70"
+      src="http://freesound.org/data/previews/328/328165_5121236-lq.mp3"
+    ></audio>
+    <audio
+      data-key="71"
+      src="http://freesound.org/data/previews/443/443007_2147148-lq.mp3"
+    ></audio>
+    <audio
+      data-key="72"
+      src="http://freesound.org/data/previews/348/348142_6358944-lq.mp3"
+    ></audio>
+    <!-- <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio> -->
+
+    <script>
+      /// I need to add a sound to the key.
+      //So I need to add an event listener,
+      //I need to add that it is interacting wit the dom and
+      //it needs a function to say that when I press the key it will link to the sound and play it
+
+      // I need to define what I am adding the image to?
+//
+
+      window.addEventListener("keydown", function(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`key[data-key="${e.keyCode}"]`);
+        const img = document.getElementById("switch")
+        if (!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+        //console.log(key);
+        //key.classList.add("playing");
+        if (e.keyCode === 72){img.style.visibility = "visible"};
+      });
+
+      /// press the key again to stop the sound
+    </script>
+  </body>
+</html>
